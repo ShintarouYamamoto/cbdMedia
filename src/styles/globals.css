@@ -1,0 +1,13 @@
+/* styles/globals.css またはあなたのグローバルCSSファイルに追加 */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* 必要に応じて、最上位のdivにもスタイルを適用 */
+#__next {
+    margin: 0;
+    padding: 0;
+}

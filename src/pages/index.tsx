@@ -1,5 +1,9 @@
+import React from 'react';
+import '../styles/globals.css';
 import Head from 'next/head';
-import Link from 'next/link';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
+
 
 export default function Home() {
   return (
@@ -9,20 +13,18 @@ export default function Home() {
         <meta name="description" content="Discover the best CBD products" />
       </Head>
 
+      <Navbar />
+
       <header >
         <h1>Welcome to CBD World</h1>
+
       </header>
 
       <main >
-        <h2>Feature Products</h2>
-          <a href="https://mui.com/material-ui/react-app-bar/#app-bar-with-responsive-menu">博多ラーメンを選ぶ</a>
-        <p>Explore our wide range of CBD oils, tinctures, and creams.</p>
-        {/* Product list or content will go here */}
+        <p>Discover the best CBD products</p>
       </main>
 
-      <footer >
-        <p>© 2023 CBD World</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
