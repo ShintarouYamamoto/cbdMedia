@@ -1,40 +1,46 @@
 import React, { useState } from 'react';
-import { Paper, IconButton } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const ImageCarousel: React.FC = () => {
-    const images = [
-        '/path/to/image1.jpg',
-        '/path/to/image2.jpg',
-        '/path/to/image3.jpg',
-        // ここに他の画像のパスを追加
-    ];
+const imageUrls = [
+  '../public/imgs/map.jpg',
+  // 他の画像も同様に追加可能
+];
 
-    const [activeStep, setActiveStep] = useState(0);
-    const maxSteps = images.length;
+const Carousel: React.FC = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const maxSteps = imageUrls.length;
 
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
-    };
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
+  };
 
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => (prevActiveStep - 1 + maxSteps) % maxSteps);
-    };
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => (prevActiveStep - 1 + maxSteps) % maxSteps);
+  };
 
-    return (
-        <div>
-            <Paper square elevation={0} sx={{ display: 'flex', alignItems: 'center', height: 50, pl: 2, bgcolor: 'background.default' }}>
-                <IconButton onClick={handleBack} disabled={activeStep === 0} aria-label="previous image">
-                    <ArrowBackIosIcon />
-                </IconButton>
-                <img src={images[activeStep]} alt={`image ${activeStep}`} style={{ height: 300, width: '100%', objectFit: 'cover' }} />
-                <IconButton onClick={handleNext} disabled={activeStep === maxSteps - 1} aria-label="next image">
-                    <ArrowForwardIosIcon />
-                </IconButton>
-            </Paper>
-        </div>
-    );
+  return (
+    <Box sx={{ position: 'relative', width: '100%', overflow: 'hidden' }}>
+      <IconButton
+        onClick={handleBack}
+        sx={{ position: 'absolute', left: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 1 }}
+      >
+        <ArrowBackIosIcon />
+      </IconButton>
+      <Box
+        component="img"
+        src={imageUrls[activeStep]}
+        sx={{ width: '100%', display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
+      />
+      <IconButton
+        onClick={handleNext}
+        sx={{ position: 'absolute', right: 0, top: '50%', transform: 'translateY(-50%)', zIndex: 1 }}
+      >
+        <ArrowForwardIosIcon />
+      </IconButton>
+    </Box>
+  );
 };
 
-export default ImageCarousel;
+export default Carousel;

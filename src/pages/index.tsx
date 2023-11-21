@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/globals.css';
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-
+import ImageCarousel from '../components/ImageCarousel';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -13,15 +13,14 @@ export default function Home() {
         <meta name="description" content="Discover the best CBD products" />
       </Head>
 
-      <Navbar />
 
       <header >
-        <h1>Welcome to CBD World</h1>
-
+        <Navbar />
       </header>
 
       <main >
-        <p>Discover the best CBD products</p>
+        <a href="https://endoca.co.jp/">zzz</a>
+        <ImageCarousel />
       </main>
 
       <Footer />
